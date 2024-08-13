@@ -1,4 +1,10 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+body {
+  background: linear-gradient(135deg, #1e0533, #110a1f);
+  color: #ffffff;
 }
