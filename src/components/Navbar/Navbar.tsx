@@ -98,9 +98,9 @@ function Navbar() {
           { text: "Features", to: "/features" },
           { text: "How It Works", to: "/how-it-works" },
           { text: "Roadmap", to: "/roadmap" },
-          { text: "API", to: "/book-generator" },
-          { text: "Price", to: "/book-generator" },
-          { text: "Models", to: "/book-generator" },
+          { text: "API", to: "/api" },
+          { text: "Price", to: "/api#pricing" },
+          { text: "Models", to: "/api#pricing" },
         ].map((link) => (
           <LinkStyle to={link.to} key={link.text}>
             <TextStyle>{link.text}</TextStyle>
