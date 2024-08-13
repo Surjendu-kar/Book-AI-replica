@@ -1,4 +1,11 @@
 import { Box, Button, Typography, styled } from "@mui/material";
+import CustomTable from "../CustomTable/CustomTable";
+import {
+  table1Headers,
+  table1Rows,
+  table2Headers,
+  table2Rows,
+} from "../CustomTable/tableData";
 
 const Section = styled(Box)(({ theme }) => ({
   background: "#1e293b",
@@ -7,6 +14,7 @@ const Section = styled(Box)(({ theme }) => ({
   marginBottom: "2rem",
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   border: "1px solid #334155",
+  lineHeight: 1.6,
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
@@ -14,6 +22,7 @@ const Section = styled(Box)(({ theme }) => ({
 
 const H2Style = styled("h2")(({ theme }) => ({
   marginTop: "2rem",
+  fontSize: "1.6rem",
   color: "#a5b4fc",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
@@ -29,6 +38,13 @@ const H3Style = styled("h3")(({ theme }) => ({
 const H4Style = styled("h4")(({ theme }) => ({
   marginTop: "2rem",
   color: "#a5b4fc",
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {},
+}));
+
+const TextStyle = styled(Typography)(({ theme }) => ({
+  fontSize: "1.045rem",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
@@ -62,6 +78,11 @@ const BtnStyle = styled(Button)(({ theme }) => ({
   fontWeight: 600,
   transition: "background-color 0.3s ease, transform 0.2s ease",
   marginTop: "1rem",
+
+  "&:hover": {
+    background: "#0ea5e9",
+    transform: "translateY(-2px)",
+  },
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
@@ -70,14 +91,26 @@ const BtnStyle = styled(Button)(({ theme }) => ({
 function BookGeneratorSections() {
   return (
     <>
+      <Section id="overview">
+        <H2Style>Overview</H2Style>
+        <TextStyle>
+          The Book Generator API allows you to generate books on various topics
+          using different language models. This documentation provides details
+          on how to use the API, including authentication, available endpoints,
+          and code examples.
+        </TextStyle>
+      </Section>
+
       <Section id="authentication">
         <H2Style>Authentication</H2Style>
-        <Typography>
+        <TextStyle>
           To use the API, you need to include your API key in the header of each
           request:
-        </Typography>
-        <CodeBlock>X-API-Key: YOUR_API_KEY</CodeBlock>
-        <Typography>To generate an API key, use the button below:</Typography>
+        </TextStyle>
+        <CodeBlock>
+          <CodeBlock>X-API-Key: YOUR_API_KEY</CodeBlock>
+        </CodeBlock>
+        <TextStyle>To generate an API key, use the button below:</TextStyle>
 
         <BtnStyle>Generate API Key</BtnStyle>
         <CodeBlock sx={{ marginTop: "1rem" }}></CodeBlock>
@@ -103,7 +136,7 @@ function BookGeneratorSections() {
           <span
             style={{
               background: "#6366f1",
-              padding: "0.75rem 1rem",
+              padding: "0.5rem 1rem",
               borderRadius: "4px",
               fontWeight: "bold",
               display: "inline-block",
@@ -115,74 +148,117 @@ function BookGeneratorSections() {
         </Box>
 
         <H4Style>Request Body</H4Style>
-        <table className="parameter-table"></table>
+        <CustomTable headers={table1Headers} rows={table1Rows} />
 
         <H4Style>Response</H4Style>
 
-        <CodeBlock>{"API response details..."}</CodeBlock>
+        <CodeBlock>
+          {`"message": "Book generation started",
+"status": "processing",
+"job_id": "unique-job-identifier"
+`}
+        </CodeBlock>
       </Section>
 
       <Section id="tutorial">
         <H2Style>Tutorial</H2Style>
         <H3Style>Step 1: Obtain an API Key</H3Style>
-        <Typography>
+        <TextStyle>
           Generate an API key using the button in the Authentication section
           above.
-        </Typography>
+        </TextStyle>
         <H3Style>Step 2: Make a Request</H3Style>
-        <Typography>
+        <TextStyle>
           Use your preferred programming language or tool to make a POST request
           to the /api/generate-book endpoint. Include your API key in the header
           and the required parameters in the request body.
-        </Typography>
+        </TextStyle>
         <H3Style>Step 3: Handle the Response</H3Style>
-        <Typography>
+        <TextStyle>
           The API will return a response with a job ID. You can use this ID to
           check the status of your book generation job.
-        </Typography>
+        </TextStyle>
         <H3Style>Step 4: Retrieve the Generated Book</H3Style>
-        <Typography>
+        <TextStyle>
           Once the job is complete, you can retrieve the generated book using
           the job ID (endpoint to be implemented).
-        </Typography>
+        </TextStyle>
       </Section>
 
       <Section id="code-examples">
         <H2Style>Code Examples</H2Style>
         <H3Style>Python</H3Style>
-        <CodeBlock>{"Python code snippet..."}</CodeBlock>
-        <H3Style>JavaScript (Node.js)</H3Style>
-        <CodeBlock>{"JavaScript code snippet..."}</CodeBlock>
-      </Section>
+        <CodeBlock>{`import requests
 
-      <Section id="overview">
-        <H2Style>Overview</H2Style>
-        <Typography>
-          The Book Generator API allows you to generate books on various topics
-          using different language models. This documentation provides details
-          on how to use the API, including authentication, available endpoints,
-          and code examples.
-        </Typography>
+API_KEY = "your_api_key_here"
+API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
+
+headers = {
+    "Content-Type": "application/json",
+    "X-API-Key": API_KEY
+}
+
+data = {
+    "api": "openai",
+    "model": "gpt-3.5-turbo",
+    "topic": "The Future of Artificial Intelligence",
+    "language": "English",
+    "word_count": 5000
+}
+
+response = requests.post(API_ENDPOINT, json=data, headers=headers)
+
+if response.status_code == 200:
+    result = response.json()
+    print(f"Book generation started. Job ID: {result['job_id']}")
+else:
+    print(f"Error: {response.status_code} - {response.text}")`}</CodeBlock>
+        <H3Style>JavaScript (Node.js)</H3Style>
+        <CodeBlock>{`const axios = require('axios');
+
+const API_KEY = 'your_api_key_here';
+const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
+
+const headers = {
+    'Content-Type': 'application/json',
+    'X-API-Key': API_KEY
+};
+
+const data = {
+    api: 'openai',
+    model: 'gpt-3.5-turbo',
+    topic: 'The Future of Artificial Intelligence',
+    language: 'English',
+    word_count: 5000
+};
+
+axios.post(API_ENDPOINT, data, { headers })
+    .then(response => {
+        console.log(Book generation started. Job ID: {response.data.job_id} );
+    })
+    .catch(error => {
+        console.error('Error:', error.response ? error.response.data : error.message);
+    });`}</CodeBlock>
       </Section>
 
       <Section id="pricing">
         <H2Style>API Pricing</H2Style>
-        <Typography>
+        <TextStyle>
           Our API pricing is based on the model used and the number of tokens
           processed. Here's a breakdown of the costs:
-        </Typography>
-        <table></table>
+        </TextStyle>
+        <CustomTable headers={table2Headers} rows={table2Rows} />
         <H3Style>Token Estimation</H3Style>
-        <Typography>
+        <TextStyle>
           On average, 1 token is approximately 4 characters or 0.75 words. For
           precise pricing, we recommend using our token calculator tool.
-        </Typography>
+        </TextStyle>
         <H3Style>Billing</H3Style>
-        <Typography>
+        <TextStyle>
           You will only be charged for the tokens used in generating the book.
           The API tracks token usage and bills accordingly. Detailed usage
           reports are available in your account dashboard.
-        </Typography>
+        </TextStyle>
       </Section>
     </>
   );

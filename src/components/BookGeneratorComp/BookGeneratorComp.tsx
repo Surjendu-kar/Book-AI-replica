@@ -4,6 +4,7 @@ import BookGeneratorSections from "./BookGeneratorSections";
 
 const MainContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "#0f172a",
+  color: "#e2e8f0",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
@@ -34,7 +35,12 @@ function BookGeneratorComp() {
       <Header>
         <Typography
           variant="h1"
-          sx={{ fontSize: "2.6rem", marginBottom: "1rem", fontWeight: "bold" }}
+          sx={{
+            fontSize: "2.6rem",
+            marginBottom: "1rem",
+            fontWeight: "bold",
+            color: "#ffffff",
+          }}
         >
           Book Generator API
         </Typography>
