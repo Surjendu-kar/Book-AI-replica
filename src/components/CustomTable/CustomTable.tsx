@@ -5,13 +5,27 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material";
+
+const TableCellStyle = styled(TableCell)(({ theme }) => ({
+  padding: "1rem",
+  fontSize: "1.05rem",
+  textAlign: "left",
+  borderBottom: "1px solid #334155",
+  [theme.breakpoints.down("lg")]: {},
+  [theme.breakpoints.down("md")]: {},
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "0.85rem",
+  },
+}));
 
 interface TableProps {
   headers: string[];
   rows: { [key: string]: string }[];
+  color: boolean;
 }
 
-export default function CustomTable({ headers, rows }: TableProps) {
+export default function CustomTable({ headers, rows, color }: TableProps) {
   return (
     <TableContainer
       component={Paper}
@@ -25,7 +39,7 @@ export default function CustomTable({ headers, rows }: TableProps) {
         background: "transparent",
       }}
     >
-      <Table sx={{ minWidth: 650 }} aria-label="custom table">
+      <Table sx={{  }} aria-label="custom table">
         <TableHead>
           <TableRow>
             {headers.map((header) => (
@@ -50,22 +64,22 @@ export default function CustomTable({ headers, rows }: TableProps) {
           {rows.map((row, index) => (
             <TableRow
               key={index}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{
+                "&:last-child td, &:last-child th": {
+                  border: 0,
+                },
+              }}
             >
               {headers.map((header, headerIndex) => (
-                <TableCell
+                <TableCellStyle
                   key={header}
                   sx={{
-                    padding: "1rem",
-                    fontSize: "1.05rem",
-                    textAlign: "left",
-                    borderBottom: "1px solid #334155",
-                    color: headerIndex === 0 ? "#22d3ee" : "#e2e8f0",
-                    fontWeight: headerIndex === 0 ? "bold" : "none",
+                    color: headerIndex === 0 && color ? "#22d3ee" : "#e2e8f0",
+                    fontWeight: headerIndex === 0 && color ? "bold" : "none",
                   }}
                 >
                   {row[header]}
-                </TableCell>
+                </TableCellStyle>
               ))}
             </TableRow>
           ))}

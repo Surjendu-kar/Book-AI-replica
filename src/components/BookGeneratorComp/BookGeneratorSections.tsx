@@ -17,7 +17,7 @@ const Section = styled(Box)(({ theme }) => ({
   lineHeight: 1.6,
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: { padding: "1.5rem" },
 }));
 
 const H2Style = styled("h2")(({ theme }) => ({
@@ -148,7 +148,7 @@ function BookGeneratorSections() {
         </Box>
 
         <H4Style>Request Body</H4Style>
-        <CustomTable headers={table1Headers} rows={table1Rows} />
+        <CustomTable headers={table1Headers} rows={table1Rows} color={true} />
 
         <H4Style>Response</H4Style>
 
@@ -241,13 +241,13 @@ axios.post(API_ENDPOINT, data, { headers })
     });`}</CodeBlock>
       </Section>
 
-      <Section id="pricing">
+      <Section id="pricing" sx={{ marginBottom: "0" }}>
         <H2Style>API Pricing</H2Style>
         <TextStyle>
           Our API pricing is based on the model used and the number of tokens
           processed. Here's a breakdown of the costs:
         </TextStyle>
-        <CustomTable headers={table2Headers} rows={table2Rows} />
+        <CustomTable headers={table2Headers} rows={table2Rows} color={false} />
         <H3Style>Token Estimation</H3Style>
         <TextStyle>
           On average, 1 token is approximately 4 characters or 0.75 words. For

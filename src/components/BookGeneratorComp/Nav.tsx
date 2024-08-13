@@ -21,7 +21,10 @@ const NavList = styled("ul")(({ theme }) => ({
   margin: 0,
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
 }));
 
 const NavItem = styled("li")(({ theme }) => ({

@@ -22,11 +22,11 @@ const Header = styled(Box)(({ theme }) => ({
 
 const Container = styled(Box)(({ theme }) => ({
   maxWidth: "1000px",
-  margin: "2rem auto",
+  margin: "2rem auto 0",
   padding: "0 2rem",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: { padding: "0 1rem" },
 }));
 
 function BookGeneratorComp() {
