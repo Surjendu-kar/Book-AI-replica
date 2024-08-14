@@ -91,7 +91,7 @@ const BtnStyle = styled(Button)(({ theme }) => ({
 function BookGeneratorSections() {
   return (
     <>
-      <Section id="overview">
+      <Section id="overview" aria-labelledby="overview-heading">
         <H2Style>Overview</H2Style>
         <TextStyle>
           The Book Generator API allows you to generate books on various topics
@@ -101,27 +101,31 @@ function BookGeneratorSections() {
         </TextStyle>
       </Section>
 
-      <Section id="authentication">
+      <Section id="authentication" aria-labelledby="auth-heading">
         <H2Style>Authentication</H2Style>
         <TextStyle>
           To use the API, you need to include your API key in the header of each
           request:
         </TextStyle>
         <CodeBlock>
-          <CodeBlock>X-API-Key: YOUR_API_KEY</CodeBlock>
+          <CodeBlock role="code" aria-label="API key header example">
+            X-API-Key: YOUR_API_KEY
+          </CodeBlock>
         </CodeBlock>
         <TextStyle>To generate an API key, use the button below:</TextStyle>
 
-        <BtnStyle>Generate API Key</BtnStyle>
+        <BtnStyle aria-label="Generate API Key">Generate API Key</BtnStyle>
         <CodeBlock sx={{ marginTop: "1rem" }}></CodeBlock>
       </Section>
 
-      <Section id="endpoints">
+      <Section id="endpoints" aria-labelledby="endpoints-heading">
         <H2Style>Endpoints</H2Style>
         <H3Style>Generate Book</H3Style>
 
-        <Box>
+        <Box aria-labelledby="generate-book-heading">
           <span
+            role="text"
+            aria-label="HTTP method"
             style={{
               background: "var(--color-accent)",
               color: "var(--color-bg)",
@@ -134,6 +138,8 @@ function BookGeneratorSections() {
             POST
           </span>
           <span
+            role="text"
+            aria-label="API endpoint"
             style={{
               background: "var(--color-primary)",
               padding: "0.5rem 1rem",
@@ -152,7 +158,7 @@ function BookGeneratorSections() {
 
         <H4Style>Response</H4Style>
 
-        <CodeBlock>
+        <CodeBlock role="code" aria-labelledby="response-heading">
           {`"message": "Book generation started",
 "status": "processing",
 "job_id": "unique-job-identifier"
@@ -160,7 +166,7 @@ function BookGeneratorSections() {
         </CodeBlock>
       </Section>
 
-      <Section id="tutorial">
+      <Section id="tutorial" aria-labelledby="tutorial-heading">
         <H2Style>Tutorial</H2Style>
         <H3Style>Step 1: Obtain an API Key</H3Style>
         <TextStyle>
@@ -185,9 +191,13 @@ function BookGeneratorSections() {
         </TextStyle>
       </Section>
 
-     <CodeExamples/>
+      <CodeExamples />
 
-      <Section id="pricing" sx={{ marginBottom: "0" }}>
+      <Section
+        id="pricing"
+        sx={{ marginBottom: "0" }}
+        aria-labelledby="pricing-heading"
+      >
         <H2Style>API Pricing</H2Style>
         <TextStyle>
           Our API pricing is based on the model used and the number of tokens

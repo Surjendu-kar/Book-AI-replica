@@ -42,7 +42,9 @@ const FlexBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: {},
+  [theme.breakpoints.down("sm")]: {
+    marginTop: "20px",
+  },
 }));
 
 const LinkStyle = styled(Link)(({ theme }) => ({
@@ -58,6 +60,7 @@ const LinkStyle = styled(Link)(({ theme }) => ({
 
 const TextStyle = styled(Typography)(({ theme }) => ({
   transition: "0.3s ease",
+  lineHeight: 1.6,  
   "&:hover": {
     color: "#8a2be2",
   },
@@ -82,7 +85,7 @@ const LoginSignupStyle = styled(Typography)(({ theme }) => ({
 
 function Navbar() {
   return (
-    <MainContainer>
+    <MainContainer role="navigation" aria-label="Main navigation">
       <LogoContainer>
         <LogoBox />
         <img
@@ -90,10 +93,10 @@ function Navbar() {
           alt="Book-AI logo"
           src="https://raw.githubusercontent.com/adarshagupta/trybookai/main/logo.png"
         />
-        <p>BookAI</p>
+        <p aria-label="Company name">BookAI</p>
       </LogoContainer>
 
-      <FlexBox>
+      <FlexBox aria-label="Site navigation">
         {[
           { text: "Features", to: "/features" },
           { text: "How It Works", to: "/how-it-works" },
@@ -107,7 +110,9 @@ function Navbar() {
           </LinkStyle>
         ))}
         <LinkStyle to={"/login"}>
-          <LoginSignupStyle>Login / Sign Up</LoginSignupStyle>
+          <LoginSignupStyle aria-label="Login or Sign Up">
+            Login / Sign Up
+          </LoginSignupStyle>
         </LinkStyle>
       </FlexBox>
     </MainContainer>

@@ -48,7 +48,7 @@ function BookGeneratorComp() {
 
   return (
     <MainContainer>
-      <Header>
+      <Header role="banner">
         <Typography
           variant="h1"
           sx={{
@@ -62,7 +62,7 @@ function BookGeneratorComp() {
         </Typography>
       </Header>
       <Nav />
-      <Container>
+      <Container role="main">
         <BookGeneratorSections />
       </Container>
     </MainContainer>

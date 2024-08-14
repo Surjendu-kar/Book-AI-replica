@@ -79,8 +79,8 @@ function Nav() {
     { name: "Pricing", path: "#pricing" },
   ];
   return (
-    <Navbar>
-      <NavList>
+    <Navbar role="navigation" aria-label="Secondary navigation">
+      <NavList role="menubar">
         {navItems.map((item) => (
           <NavItem key={item.name}>
             <a href={item.path}>{item.name}</a>
@@ -88,7 +88,13 @@ function Nav() {
         ))}
 
         <ThemeToggle>
-          <IconButton onClick={handleThemeChange} color="inherit">
+          <IconButton
+            onClick={handleThemeChange}
+            color="inherit"
+            aria-label={
+              isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
+          >
             {isDarkMode ? (
               <Brightness7Icon sx={{ width: "20px", height: "20px" }} />
             ) : (

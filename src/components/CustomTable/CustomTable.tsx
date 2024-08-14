@@ -39,7 +39,7 @@ export default function CustomTable({ headers, rows, color }: TableProps) {
         background: "transparent",
       }}
     >
-      <Table sx={{}} aria-label="custom table">
+      <Table aria-label="custom table">
         <TableHead>
           <TableRow>
             {headers.map((header) => (
@@ -54,6 +54,7 @@ export default function CustomTable({ headers, rows, color }: TableProps) {
                   color: "var(--color-text)",
                   border: "none",
                 }}
+                role="columnheader"
               >
                 {header}
               </TableCell>
