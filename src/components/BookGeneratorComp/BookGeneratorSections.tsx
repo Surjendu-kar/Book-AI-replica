@@ -6,6 +6,7 @@ import {
   table2Headers,
   table2Rows,
 } from "../CustomTable/tableData";
+import CodeExamples from "./CodeExamples";
 
 const Section = styled(Box)(({ theme }) => ({
   background: "var(--color-box-bg)",
@@ -184,61 +185,7 @@ function BookGeneratorSections() {
         </TextStyle>
       </Section>
 
-      <Section id="code-examples">
-        <H2Style>Code Examples</H2Style>
-        <H3Style>Python</H3Style>
-        <CodeBlock>{`import requests
-
-API_KEY = "your_api_key_here"
-API_ENDPOINT = "https://tryBookAI.com/api/generate-book"
-
-headers = {
-    "Content-Type": "application/json",
-    "X-API-Key": API_KEY
-}
-
-data = {
-    "api": "openai",
-    "model": "gpt-3.5-turbo",
-    "topic": "The Future of Artificial Intelligence",
-    "language": "English",
-    "word_count": 5000
-}
-
-response = requests.post(API_ENDPOINT, json=data, headers=headers)
-
-if response.status_code == 200:
-    result = response.json()
-    print(f"Book generation started. Job ID: {result['job_id']}")
-else:
-    print(f"Error: {response.status_code} - {response.text}")`}</CodeBlock>
-        <H3Style>JavaScript (Node.js)</H3Style>
-        <CodeBlock>{`const axios = require('axios');
-
-const API_KEY = 'your_api_key_here';
-const API_ENDPOINT = 'https://tryBookAI.com/api/generate-book';
-
-const headers = {
-    'Content-Type': 'application/json',
-    'X-API-Key': API_KEY
-};
-
-const data = {
-    api: 'openai',
-    model: 'gpt-3.5-turbo',
-    topic: 'The Future of Artificial Intelligence',
-    language: 'English',
-    word_count: 5000
-};
-
-axios.post(API_ENDPOINT, data, { headers })
-    .then(response => {
-        console.log(Book generation started. Job ID: {response.data.job_id} );
-    })
-    .catch(error => {
-        console.error('Error:', error.response ? error.response.data : error.message);
-    });`}</CodeBlock>
-      </Section>
+     <CodeExamples/>
 
       <Section id="pricing" sx={{ marginBottom: "0" }}>
         <H2Style>API Pricing</H2Style>
