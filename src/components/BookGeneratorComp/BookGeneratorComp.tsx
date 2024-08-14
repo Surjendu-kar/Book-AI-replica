@@ -25,10 +25,10 @@ const Header = styled(Box)(({ theme }) => ({
 const Container = styled(Box)(({ theme }) => ({
   maxWidth: "1000px",
   margin: "2rem auto 0",
-  padding: "0 2rem",
+  padding: "0 2rem 2rem",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
-  [theme.breakpoints.down("sm")]: { padding: "0 1rem" },
+  [theme.breakpoints.down("sm")]: { padding: "0 1rem 1.5rem" },
 }));
 
 function BookGeneratorComp() {
