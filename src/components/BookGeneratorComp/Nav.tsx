@@ -52,9 +52,14 @@ const NavItem = styled("li")(({ theme }) => ({
 const ThemeToggle = styled(Box)(() => ({}));
 
 function Nav() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode !== null ? JSON.parse(savedMode) : true;
+  });
 
   useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+
     document.documentElement.setAttribute(
       "theme",
       isDarkMode ? "dark" : "light"
@@ -62,10 +67,10 @@ function Nav() {
   }, [isDarkMode]);
 
   const handleThemeChange = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode((prevMode) => !prevMode);
   };
 
-  const navItems = [
+  const navItems: Array<{ name: string; path: string }> = [
     { name: "Overview", path: "#overview" },
     { name: "Authentication", path: "#authentication" },
     { name: "Endpoints", path: "#endpoints" },
