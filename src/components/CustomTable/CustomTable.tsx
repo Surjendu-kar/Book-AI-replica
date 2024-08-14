@@ -39,19 +39,19 @@ export default function CustomTable({ headers, rows, color }: TableProps) {
         background: "transparent",
       }}
     >
-      <Table sx={{  }} aria-label="custom table">
+      <Table sx={{}} aria-label="custom table">
         <TableHead>
           <TableRow>
             {headers.map((header) => (
               <TableCell
                 key={header}
                 sx={{
-                  backgroundColor: "#6366f1",
+                  backgroundColor: "var(--color-primary)",
                   fontWeight: 600,
                   textTransform: "uppercase",
                   letterSpacing: "0.5px",
                   fontSize: "0.8rem",
-                  color: "#e2e8f0",
+                  color: "var(--color-text)",
                   border: "none",
                 }}
               >
@@ -60,7 +60,7 @@ export default function CustomTable({ headers, rows, color }: TableProps) {
             ))}
           </TableRow>
         </TableHead>
-        <TableBody sx={{ background: "#1e293b" }}>
+        <TableBody sx={{ background: "var(--color-box-bg)" }}>
           {rows.map((row, index) => (
             <TableRow
               key={index}
@@ -74,7 +74,10 @@ export default function CustomTable({ headers, rows, color }: TableProps) {
                 <TableCellStyle
                   key={header}
                   sx={{
-                    color: headerIndex === 0 && color ? "#22d3ee" : "#e2e8f0",
+                    color:
+                      headerIndex === 0 && color
+                        ? "var(--color-accent)"
+                        : "var(--color-text)",
                     fontWeight: headerIndex === 0 && color ? "bold" : "none",
                   }}
                 >

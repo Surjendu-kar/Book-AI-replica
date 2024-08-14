@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 
 const Navbar = styled(Box)(({ theme }) => ({
-  backgroundColor: "#1e293b",
+  backgroundColor: "var(--color-box-bg)",
   padding: "1.1rem 0",
   position: "sticky",
   top: 0,
@@ -30,7 +30,7 @@ const NavList = styled("ul")(({ theme }) => ({
 const NavItem = styled("li")(({ theme }) => ({
   margin: "0.5rem 1rem",
   "& a": {
-    color: "#e2e8f0",
+    color: "var(--color-text)",
     textDecoration: "none",
     fontWeight: 500,
     transition: "color 0.3s ease",
@@ -38,7 +38,7 @@ const NavItem = styled("li")(({ theme }) => ({
     textTransform: "uppercase",
     letterSpacing: "0.5px",
     "&:hover": {
-      color: "#22d3ee",
+      color: "var(--color-accent) ",
     },
   },
   [theme.breakpoints.down("lg")]: {},

@@ -8,3 +8,22 @@ body {
   background: linear-gradient(135deg, #1e0533, #110a1f);
   color: #ffffff;
 }
+
+/* Dark theme colors */
+:root {
+  --color-bg: #0f172a;
+  --color-box-bg: #1e293b;
+  --color-text: #e2e8f0;
+  --color-primary: #6366f1;
+  --color-primary-light: #a5b4fc;
+  --color-accent: #22d3ee;
+}
+
+/* Light theme colors */
+:root[theme="light"] {
+  --color-bg: #ffffff;
+  --color-box-bg: #f0f4f8;
+  --color-text: #1e293b;
+  --color-primary: #4f46e5;
+  --color-primary-light: #d8daff;
+}

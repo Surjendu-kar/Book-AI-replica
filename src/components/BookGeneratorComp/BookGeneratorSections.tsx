@@ -8,7 +8,7 @@ import {
 } from "../CustomTable/tableData";
 
 const Section = styled(Box)(({ theme }) => ({
-  background: "#1e293b",
+  background: "var(--color-box-bg)",
   borderRadius: "8px",
   padding: "2rem",
   marginBottom: "2rem",
@@ -23,14 +23,14 @@ const Section = styled(Box)(({ theme }) => ({
 const H2Style = styled("h2")(({ theme }) => ({
   marginTop: "2rem",
   fontSize: "1.6rem",
-  color: "#a5b4fc",
+  color: "var(--color-primary-light)",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
 }));
 const H3Style = styled("h3")(({ theme }) => ({
   marginTop: "2rem",
-  color: "#a5b4fc",
+  color: "var(--color-primary-light)",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
@@ -52,7 +52,6 @@ const TextStyle = styled(Typography)(({ theme }) => ({
 
 const CodeBlock = styled("pre")(({ theme }) => ({
   fontFamily: "'Fira Code', monospace",
-  backgroundColor: "#1e293b",
   borderRadius: "4px",
   padding: "1rem",
   overflowX: "auto",
@@ -68,8 +67,8 @@ const CodeBlock = styled("pre")(({ theme }) => ({
 
 const BtnStyle = styled(Button)(({ theme }) => ({
   textTransform: "capitalize",
-  background: "#22d3ee",
-  color: "#0f172a",
+  background: "var(--color-accent)",
+  color: "var(--color-bg)",
   border: "none",
   padding: "0.6rem 1.5rem",
   borderRadius: "4px",
@@ -123,8 +122,8 @@ function BookGeneratorSections() {
         <Box>
           <span
             style={{
-              background: "#22d3ee",
-              color: "#0f172a",
+              background: "var(--color-accent)",
+              color: "var(--color-bg)",
               padding: "0.25rem 0.5rem",
               borderRadius: "4px",
               fontWeight: "bold",
@@ -135,7 +134,7 @@ function BookGeneratorSections() {
           </span>
           <span
             style={{
-              background: "#6366f1",
+              background: "var(--color-primary)",
               padding: "0.5rem 1rem",
               borderRadius: "4px",
               fontWeight: "bold",

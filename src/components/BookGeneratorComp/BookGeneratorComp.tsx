@@ -3,15 +3,15 @@ import Nav from "./Nav";
 import BookGeneratorSections from "./BookGeneratorSections";
 
 const MainContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: "#0f172a",
-  color: "#e2e8f0",
+  backgroundColor: "var(--color-bg)",
+  color: "var(--color-text)",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},
 }));
 
 const Header = styled(Box)(({ theme }) => ({
-  backgroundColor: "#6366f1",
+  backgroundColor: "var(--color-primary)",
   padding: "2.5rem 0",
   textAlign: "center",
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
