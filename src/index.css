@@ -24,6 +24,7 @@ body {
   --color-bg: #ffffff;
   --color-box-bg: #f0f4f8;
   --color-text: #1e293b;
-  --color-primary: #4f46e5;
-  --color-primary-light: #d8daff;
+  --color-primary: #857ffe;
+  --color-primary-light: #7a74f3;
+  --color-accent: #7a74f3;
 }

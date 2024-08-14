@@ -37,7 +37,7 @@ const H3Style = styled("h3")(({ theme }) => ({
 }));
 const H4Style = styled("h4")(({ theme }) => ({
   marginTop: "2rem",
-  color: "#a5b4fc",
+  color: "var(--color-primary-light)",
   [theme.breakpoints.down("lg")]: {},
   [theme.breakpoints.down("md")]: {},
   [theme.breakpoints.down("sm")]: {},

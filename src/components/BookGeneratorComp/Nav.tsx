@@ -1,4 +1,7 @@
-import { Box, styled } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Box, styled, IconButton } from "@mui/material";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 const Navbar = styled(Box)(({ theme }) => ({
   backgroundColor: "var(--color-box-bg)",
@@ -46,7 +49,22 @@ const NavItem = styled("li")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {},
 }));
 
+const ThemeToggle = styled(Box)(() => ({}));
+
 function Nav() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      "theme",
+      isDarkMode ? "dark" : "light"
+    );
+  }, [isDarkMode]);
+
+  const handleThemeChange = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   const navItems = [
     { name: "Overview", path: "#overview" },
     { name: "Authentication", path: "#authentication" },
@@ -63,6 +81,16 @@ function Nav() {
             <a href={item.path}>{item.name}</a>
           </NavItem>
         ))}
+
+        <ThemeToggle>
+          <IconButton onClick={handleThemeChange} color="inherit">
+            {isDarkMode ? (
+              <Brightness7Icon sx={{ width: "20px", height: "20px" }} />
+            ) : (
+              <Brightness4Icon sx={{ width: "20px", height: "20px" }} />
+            )}
+          </IconButton>
+        </ThemeToggle>
       </NavList>
     </Navbar>
   );
