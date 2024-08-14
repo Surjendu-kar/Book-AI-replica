@@ -1,6 +1,8 @@
 import { Box, styled, Typography } from "@mui/material";
 import Nav from "./Nav";
 import BookGeneratorSections from "./BookGeneratorSections";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const MainContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "var(--color-bg)",
@@ -30,6 +32,20 @@ const Container = styled(Box)(({ theme }) => ({
 }));
 
 function BookGeneratorComp() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
   return (
     <MainContainer>
       <Header>
