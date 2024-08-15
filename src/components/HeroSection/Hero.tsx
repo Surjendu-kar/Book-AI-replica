@@ -1,4 +1,5 @@
 import { Box, styled, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const MainContainer = styled(Box)(({ theme }) => ({
@@ -58,7 +59,7 @@ function Hero() {
     },
   }));
 
-  const BtnStyle = styled("a")(({ theme }) => ({
+  const BtnStyle = styled(Link)(({ theme }) => ({
     display: "inline-block",
     padding: "15px 30px",
     backgroundImage: "linear-gradient(45deg, #726bff, #57b6fe);",
@@ -87,10 +88,10 @@ function Hero() {
         Download, Distribute wherever you want. Generate unlimited free books
       </SubTitle>
       <ButtonContainer>
-        <BtnStyle href="https://trybookai.com/playground" target="_blank">
+        <BtnStyle to="https://trybookai.com/playground" target="_blank">
           Get Started
         </BtnStyle>
-        <BtnStyle href="/api">Get API Access</BtnStyle>
+        <BtnStyle to="/api">Get API Access</BtnStyle>
       </ButtonContainer>
 
       <Typography sx={{ color: "yellow", marginTop: "2rem" }}>
