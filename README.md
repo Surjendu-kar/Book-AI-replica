@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# BookAI Replica
 
-Currently, two official plugins are available:
+## Overview
+This project replicates the "Pricing" section of the TryBookAI.com website as part of a job assessment for a frontend development position. The focus of this replication was to create a component that is responsive, accessible, and maintains design fidelity with the original site. It has been developed using ReactJS, TypeScript, and Material-UI (MUI).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- ### Responsive Design:
+    Ensures that the component is adaptable to   various screen  sizes from mobile to desktop. 
+- ### Accessibility: 
+    Uses semantic HTML and ARIA attributes to provide a better user experience for all users, including those with disabilities.
+- ### Theme Toggle:
+    Incorporates a light and dark mode toggle feature.
+- ### Modern Technologies: 
+    Built with ReactJS for component-based architecture, TypeScript for type safety, and Material-UI for styled components and responsiveness.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Deployment
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- ### ReactJS: 
+    Manages the UI logic and state.
+- ### TypeScript: 
+    Provides type definitions to ensure more reliable coding and reduce runtime errors.
+- ### Material-UI: 
+    Supplies ready-made components that can be easily customized to fit the design requirements.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
