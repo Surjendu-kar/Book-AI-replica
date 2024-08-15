@@ -98,9 +98,9 @@ function Navbar() {
 
       <FlexBox aria-label="Site navigation">
         {[
-          { text: "Features", to: "/features" },
-          { text: "How It Works", to: "/how-it-works" },
-          { text: "Roadmap", to: "/roadmap" },
+          { text: "Features", to: "/" },
+          { text: "How It Works", to: "/" },
+          { text: "Roadmap", to: "/" },
           { text: "API", to: "/api" },
           { text: "Price", to: "/api#pricing" },
           { text: "Models", to: "/api#pricing" },
@@ -109,7 +109,7 @@ function Navbar() {
             <TextStyle>{link.text}</TextStyle>
           </LinkStyle>
         ))}
-        <LinkStyle to={"/login"}>
+        <LinkStyle to={"/"}>
           <LoginSignupStyle aria-label="Login or Sign Up">
             Login / Sign Up
           </LoginSignupStyle>

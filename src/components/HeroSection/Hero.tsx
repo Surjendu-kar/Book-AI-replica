@@ -66,8 +66,10 @@ function Hero() {
     textDecoration: "none",
     borderRadius: "30px",
     fontWeight: 600,
-    transition: "background-color 0.3s",
-
+    transition: "transform 0.3s ease",
+    "&:hover": {
+      transform: "translateY(-3px)",
+    },
     [theme.breakpoints.down("lg")]: {},
     [theme.breakpoints.down("md")]: {},
     [theme.breakpoints.down("sm")]: {},
